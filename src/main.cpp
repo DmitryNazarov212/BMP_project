@@ -1,17 +1,33 @@
 #include <iostream>
+#include <filesystem>
 #include "BMP_file.hpp"
-
+#include <string>
+#include <exception>
 int main()
 {
     BmpHeader header;
 
-    FileBMP file("/home/dmitry/Pictures/bmp_24.bmp");
-    
-    file.readImage(file.getFileName());
+    std::string fileName;
 
-    file.showPicture();
+    try{
+        std::cin >> fileName;
+        FileBMP file(std::filesystem::current_path().parent_path()/"image/"/fileName); 
+        file.readImage(file.getFileName());
+        file.showImage();
+        file.editImage();
 
-    file.editImage();
+        file.showImage();
 
-    file.showPicture();
+        std::cin >> fileName;
+        file.saveImage(fileName);
+    }
+    catch(std::exception &e){
+        std::cout << "Error: " << e.what() << std:: endl;
+    }
+    catch(...)
+    {
+        std::cout << "Error: Unrecognised problem" << std:: endl; 
+    }
+
+    return 0;
 }

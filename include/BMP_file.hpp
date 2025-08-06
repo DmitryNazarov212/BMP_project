@@ -42,10 +42,9 @@ private:
     int32_t width_; 
     int32_t height_;
 
-    template <bool IsConst>
-    std::conditional_t<IsConst, const uint8_t*, uint8_t*> getPixel(int x, int y) const;
-    
     void drawLine(int x1, int y1, int x2, int y2);
+    const uint8_t* getPixel(int x, int y) const;
+    uint8_t* getPixel(int x, int y);
 
 public:
     explicit FileBMP(const std::string FileName) : FileName_(FileName) {};
@@ -55,12 +54,10 @@ public:
     
     void editImage();
 
-    void saveImage();
+    void saveImage(std::string fileName);
 
-    void showPicture() const;
+    void showImage() const;
 
-    const uint8_t* getPixel(int x, int y) const;
-    uint8_t* getPixel(int x, int y);
     ~FileBMP() {};
 
     std::string getFileName() {return FileName_; };
