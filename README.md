@@ -7,10 +7,10 @@
     - Созднные и исходная картинка хранится в папке image
 
 ## Сборка
-   git clone https://github.com/DmitryNazarov212/BMP_project.git
-   mkdir build && cd build
-   cmake ..
-   make ..
-   ./mainExe
+   - git clone https://github.com/DmitryNazarov212/BMP_project.git
+   - mkdir build && cd build
+   - cmake ..
+   - make ..
+   - ./mainExe
 
-[!Исходная/измененая]{https://github.com/DmitryNazarov212/BMP_project.git/image/image.png}
+![Исходная/измененая](https://github.com/DmitryNazarov212/BMP_project.git/image/image.png)
