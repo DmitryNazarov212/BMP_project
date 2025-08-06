@@ -13,4 +13,4 @@
    - make ..
    - ./mainExe
 
-![Исходная/измененая](https://github.com/DmitryNazarov212/BMP_project.git/image/image.png)
+![Исходная/измененая](./image/image.png)
