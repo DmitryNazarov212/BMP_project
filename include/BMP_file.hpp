@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include <mutex>
 #include <vector>
 
 
@@ -49,10 +48,9 @@ private:
 public:
     explicit FileBMP(const std::string FileName) : FileName_(FileName) {};
 
-    void readImage(const std::string FileName_);
-
+    bool readImage(const std::string FileName_);
     
-    void editImage();
+    bool editImage();
 
     void saveImage(std::string fileName);
 

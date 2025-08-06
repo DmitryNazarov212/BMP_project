@@ -21,7 +21,7 @@ uint8_t* FileBMP::getPixel(int x, int y) {
 }
 
 
-void FileBMP::readImage(const std::string FileName_)
+bool FileBMP::readImage(const std::string FileName_)
 {
     std::ifstream file(FileName_, std::ios::binary);
 
@@ -29,7 +29,6 @@ void FileBMP::readImage(const std::string FileName_)
     {
         throw std::runtime_error("Cannot read file");
     }
-    
     file.read((char*)&header, sizeof(header));
     if(header.bitmapSignatureBytes[0] != 'B' || header.bitmapSignatureBytes[1] != 'M')
     {
@@ -58,6 +57,7 @@ void FileBMP::readImage(const std::string FileName_)
         pixelData.clear(); 
         throw std::runtime_error("Error reading pixel data");
     }
+    return true;
 }
 
 
@@ -76,10 +76,11 @@ void FileBMP::showImage() const {
 }
 
 
-void FileBMP::editImage()
+bool FileBMP::editImage()
 {   
     drawLine(2, 5, width_ - 18, height_ - 5);
     drawLine(2, height_ - 5, width_ - 18, 5);
+    return true;
 }
 
 
